@@ -1,0 +1,169 @@
+1️⃣ list (Dynamic Array)
+Library
+# built-in
+
+Operations
+lst.append(x)          # add end
+lst.insert(i, x)       # add at index
+lst.pop()              # delete end
+lst.pop(i)             # delete at index
+lst.remove(x)          # delete by value
+
+Complexity
+Operation	TC	SC
+Access lst[i]	O(1)	O(1)
+Append	O(1)*	O(1)
+Insert (middle)	O(n)	O(1)
+Pop (end)	O(1)	O(1)
+Pop (index)	O(n)	O(1)
+Search	O(n)	O(1)
+
+* amortized
+
+2️⃣ tuple (Immutable Array)
+Library
+# built-in
+
+Operations
+t = (1, 2, 3)
+# cannot add or delete
+
+Complexity
+Operation	TC	SC
+Access	O(1)	O(1)
+Search	O(n)	O(1)
+Add/Delete	❌ Not allowed	—
+3️⃣ dict (Hash Table)
+Library
+# built-in
+
+Operations
+d[key] = value         # add/update
+del d[key]             # delete
+d.pop(key)
+
+Complexity
+Operation	Avg TC	Worst TC	SC
+Insert	O(1)	O(n)	O(n)
+Delete	O(1)	O(n)	O(n)
+Search	O(1)	O(n)	O(n)
+4️⃣ set (Hash Set)
+Library
+# built-in
+
+Operations
+s.add(x)
+s.remove(x)
+s.discard(x)
+
+Complexity
+Operation	Avg TC	Worst TC	SC
+Add	O(1)	O(n)	O(n)
+Remove	O(1)	O(n)	O(n)
+Search	O(1)	O(n)	O(n)
+5️⃣ Heap (Priority Queue)
+Library
+import heapq
+
+Operations
+heapq.heappush(h, x)    # insert
+heapq.heappop(h)       # delete min
+
+Complexity
+Operation	TC	SC
+Insert	O(log n)	O(n)
+Delete Min	O(log n)	O(n)
+Get Min	O(1)	O(n)
+Search	O(n)	O(n)
+6️⃣ Queue (FIFO)
+Library
+from collections import deque
+
+Operations
+q.append(x)      # enqueue
+q.popleft()      # dequeue
+
+Complexity
+Operation	TC	SC
+Enqueue	O(1)	O(n)
+Dequeue	O(1)	O(n)
+Peek	O(1)	O(n)
+7️⃣ Stack (LIFO)
+Library
+# list OR collections.deque
+
+Operations
+stack.append(x)   # push
+stack.pop()       # pop
+
+Complexity
+Operation	TC	SC
+Push	O(1)	O(n)
+Pop	O(1)	O(n)
+Peek	O(1)	O(n)
+8️⃣ DFS (Depth First Search)
+Library
+# recursion or stack
+
+Operations
+def dfs(node):
+    visited.add(node)
+    for nei in graph[node]:
+        if nei not in visited:
+            dfs(nei)
+
+Complexity
+Metric	Value
+Time	O(V + E)
+Space	O(V)
+9️⃣ BFS (Breadth First Search)
+Library
+from collections import deque
+
+Operations
+q = deque([start])
+while q:
+    node = q.popleft()
+
+Complexity
+Metric	Value
+Time	O(V + E)
+Space	O(V)
+🔟 Deque (Double Ended Queue)
+Library
+from collections import deque
+
+Operations
+dq.append(x)
+dq.appendleft(x)
+dq.pop()
+dq.popleft()
+
+Complexity
+Operation	TC	SC
+Insert Front	O(1)	O(n)
+Insert Rear	O(1)	O(n)
+Delete Front	O(1)	O(n)
+Delete Rear	O(1)	O(n)
+🧠 Quick Interview Cheat Sheet
+Structure	Best For
+list	Ordered data
+tuple	Fixed data
+dict	Key-value lookup
+set	Uniqueness
+heap	Priority queue
+deque	Fast queue
+stack	Undo / recursion
+BFS	Shortest path
+DFS	Backtracking
+🔑 Final Notes (Important)
+
+Python dict and set are hash-based
+
+deque is faster than list for queues
+
+Heap is NOT sorted
+
+DFS uses stack, BFS uses queue
+
+Worst-case hash operations exist but are rare
