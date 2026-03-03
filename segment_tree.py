@@ -81,6 +81,25 @@ class SegmentTree:
         self.tree[node] = self.tree[2*node+1] + self.tree[2*node+2]
 
     def query(self, node, start, end, L, R):
+        # node -> Index in the segment tree array (self.tree). 
+        # node 0 → root (covers entire array)
+        # node 1 → left child
+        # node 2 → right child
+
+        # start, end -> The range of the original array that this node
+        # represents.
+        # For this example:
+        # node	range
+        # 0	[0–4]
+        # 1	[0–2]
+        # 2	[3–4]
+        # 3	[0–1]
+        # 4	[2–2]
+        # 5	[3–3]
+        # 6	[4–4]
+
+        # L, R -> The query range requested by the user.
+        
         # no overlap
         if R < start or end < L:
             return 0
@@ -120,3 +139,15 @@ if __name__ == "__main__":
     st.update(0,0,4,2,10)        # arr[2] = 10
 
     print(st.query(0,0,4,1,3))   # 1+10+3 = 14
+
+# | node | range | value |
+# | ---- | ----- | ----- |
+# | 0    | 0-4   | 15    |
+# | 1    | 0-2   | 8     |
+# | 2    | 3-4   | 7     |
+# | 3    | 0-1   | 3     |
+# | 4    | 2     | 5     |
+# | 5    | 3     | 3     |
+# | 6    | 4     | 4     |
+# | 7    | 0     | 2     |
+# | 8    | 1     | 1     |
